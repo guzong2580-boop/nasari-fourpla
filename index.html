@@ -5,15 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>나사리 포플라 NASARI FOUR PLA · 한 동, 4업종, 1테이블</title>
 <meta name="description" content="울산 간절곶 5분, 나사해안길 33. 한식·쌀국수·카페·국수까지 한 동에서 만나는 푸드코트형 복합 F&B 건물.">
+<link rel="canonical" href="https://nasari-fourpla.vercel.app/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="NASARI FOUR PLA">
+<meta property="og:title" content="나사리 포플라 NASARI FOUR PLA · 한 동, 4업종, 1테이블">
+<meta property="og:description" content="울산 간절곶 5분, 나사해안길 33. 한식·쌀국수·카페·국수까지 한 동에서 만나는 푸드코트형 복합 F&B 건물.">
+<meta property="og:url" content="https://nasari-fourpla.vercel.app/">
+<meta property="og:image" content="https://nasari-fourpla.vercel.app/assets/img/og-default.svg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="나사리 포플라 NASARI FOUR PLA">
+<meta name="twitter:description" content="한 동, 4업종, 1테이블 — 울산 간절곶 5분의 푸드코트형 복합 F&B 건물.">
+<meta name="twitter:image" content="https://nasari-fourpla.vercel.app/assets/img/og-default.svg">
+
+<!-- Perf: font hosts -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="https://fastly.jsdelivr.net/gh/projectnoonnu/2406-3@1.0/Paperlogy-8ExtraBold.woff2">
+
 <link rel="stylesheet" href="assets/css/main.css">
+
+<!-- JSON-LD: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "나사리 포플라",
+  "alternateName": "NASARI FOUR PLA",
+  "description": "울산 간절곶 5분, 한 동에 한식·쌀국수·카페·국수 4업종이 모인 푸드코트형 복합 F&B 건물.",
+  "url": "https://nasari-fourpla.vercel.app/",
+  "image": "https://nasari-fourpla.vercel.app/assets/img/og-default.svg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "나사해안길 33, 103동",
+    "addressLocality": "서생면",
+    "addressRegion": "울산광역시 울주군",
+    "addressCountry": "KR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 35.3375,
+    "longitude": 129.3447
+  }
+}
+</script>
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" aria-label="주 메뉴">
   <div class="container nav-inner">
     <a href="index.html" class="nav-brand">NASARI FOUR PLA <small>나사리 포플라</small></a>
-    <button class="nav-toggle" aria-label="메뉴">☰</button>
-    <ul class="nav-menu">
+    <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav">☰</button>
+    <ul class="nav-menu" id="primary-nav">
       <li><a href="index.html">건물소개</a></li>
       <li><a href="stores/wanyeonhan.html">완연한 나사리</a></li>
       <li><a href="stores/bamai.html">바마이</a></li>
@@ -24,6 +72,7 @@
   </div>
 </nav>
 
+<main>
 <header class="hero">
   <div class="container hero-inner">
     <div class="hero-eyebrow">ULSAN · GANJEOLGOT · 5MIN</div>
@@ -36,10 +85,10 @@
   </div>
 </header>
 
-<section id="concept">
+<section id="concept" aria-labelledby="concept-h">
   <div class="container">
     <div class="sec-eyebrow">CONCEPT</div>
-    <h2 class="sec-title">푸드코트형 복합 F&B 건물</h2>
+    <h2 id="concept-h" class="sec-title">푸드코트형 복합 F&B 건물</h2>
     <p class="sec-lead">관광지 단일 매장의 한계를 넘어, 한 동에 다양한 업종을 모아 체류시간을 늘리고 가족·동행 단위 손님 전체를 흡수하는 구조입니다.</p>
     <div class="concept-grid">
       <div class="concept-card">
@@ -61,14 +110,14 @@
   </div>
 </section>
 
-<section id="stores" style="background: var(--sand);">
+<section id="stores" style="background: var(--sand);" aria-labelledby="stores-h">
   <div class="container">
     <div class="sec-eyebrow">4 STORES</div>
-    <h2 class="sec-title">매장 미리보기</h2>
+    <h2 id="stores-h" class="sec-title">매장 미리보기</h2>
     <p class="sec-lead">각 매장의 컨셉, 메뉴, 운영시간을 상세 페이지에서 확인하세요.</p>
     <div class="stores-grid">
       <a class="store-card" href="stores/wanyeonhan.html">
-        <div class="store-thumb">WANYEONHAN NASARI</div>
+        <div class="store-thumb" aria-hidden="true">WANYEONHAN NASARI</div>
         <div class="store-body">
           <span class="store-cat">ANCHOR · 한식 화덕생선구이 · 50평</span>
           <h3>완연한 나사리</h3>
@@ -77,7 +126,7 @@
         </div>
       </a>
       <a class="store-card" href="stores/bamai.html">
-        <div class="store-thumb">BAMAI</div>
+        <div class="store-thumb" aria-hidden="true">BAMAI</div>
         <div class="store-body">
           <span class="store-cat">KEY TENANT · 베트남 쌀국수 · 25평</span>
           <h3>바마이 쌀국수</h3>
@@ -86,7 +135,7 @@
         </div>
       </a>
       <a class="store-card" href="stores/seoridam.html">
-        <div class="store-thumb">SEORIDAM</div>
+        <div class="store-thumb" aria-hidden="true">SEORIDAM</div>
         <div class="store-body">
           <span class="store-cat">SUB-ANCHOR · 카페 · 25평</span>
           <h3>서리담 카페</h3>
@@ -95,7 +144,7 @@
         </div>
       </a>
       <a class="store-card" href="stores/onbook.html">
-        <div class="store-thumb">ONBOOK NOODLE</div>
+        <div class="store-thumb" aria-hidden="true">ONBOOK NOODLE</div>
         <div class="store-body">
           <span class="store-cat">FILLER · 국수 · 분식 · 20평</span>
           <h3>온북국수</h3>
@@ -107,10 +156,10 @@
   </div>
 </section>
 
-<section id="location">
+<section id="location" aria-labelledby="location-h">
   <div class="container">
     <div class="sec-eyebrow">LOCATION</div>
-    <h2 class="sec-title">위치 안내</h2>
+    <h2 id="location-h" class="sec-title">위치 안내</h2>
     <div class="location-grid">
       <div class="location-info">
         <dl>
@@ -120,10 +169,11 @@
           <dt>주변</dt><dd>간절곶 차량 5분 · 서생포왜성 10분</dd>
         </dl>
       </div>
-      <div class="location-map">[ 지도 영역 — Kakao Map 연동 예정 ]</div>
+      <div class="location-map" aria-label="지도 영역 — 추후 카카오맵 연동 예정">[ 지도 영역 — Kakao Map 연동 예정 ]</div>
     </div>
   </div>
 </section>
+</main>
 
 <footer class="footer">
   <div class="container">

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="630" viewBox="0 0 1024 630" role="img" aria-label="NASARI FOUR PLA — 한 동, 4업종, 1테이블">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E2A3B"/>
+      <stop offset="0.6" stop-color="#1E4F6E"/>
+      <stop offset="1" stop-color="#4A8FB5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.28" r="0.6">
+      <stop offset="0" stop-color="#F5EFE3" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#F5EFE3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="630" fill="url(#bg)"/>
+  <rect width="1024" height="630" fill="url(#glow)"/>
+  <g font-family="'Helvetica Neue', Arial, sans-serif" fill="#FFFFFF">
+    <text x="72" y="160" font-size="22" letter-spacing="6" fill="#EAD9B8" font-weight="600">ULSAN · GANJEOLGOT · 5MIN</text>
+    <text x="72" y="300" font-size="92" font-weight="800" letter-spacing="-1.5">NASARI FOUR PLA</text>
+    <text x="72" y="380" font-size="44" font-weight="700" fill="#EAD9B8">나사리 포플라</text>
+    <text x="72" y="470" font-size="34" font-weight="600" fill="rgba(255,255,255,0.92)">한 동, 4업종, 1테이블.</text>
+    <text x="72" y="530" font-size="22" font-weight="400" fill="rgba(255,255,255,0.75)">한식 · 쌀국수 · 카페 · 국수 — 푸드코트형 복합 F&amp;B 건물</text>
+  </g>
+  <g stroke="#EAD9B8" stroke-width="2" opacity="0.5">
+    <line x1="72" y1="190" x2="200" y2="190"/>
+  </g>
+</svg>
