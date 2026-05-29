@@ -49,4 +49,13 @@ python -m http.server 8000
 - `--ocean-deep #0E2A3B` / `--ocean #1E4F6E` / `--ocean-light #4A8FB5`
 - `--sand #F5EFE3` / `--sand-warm #EAD9B8`
 - `--accent #C9743D` (화덕 불씨)
-- 폰트: Pretendard
+- 폰트: **헤드라인 Paperlogy(8ExtraBold/6SemiBold)** + 본문 Pretendard
+  - CDN: `https://fastly.jsdelivr.net/gh/projectnoonnu/2406-3@1.0/Paperlogy-*.woff2`
+
+## 카카오맵 JS API 업그레이드
+현재 `contact.html`은 카카오맵 검색 iframe (키 불필요)으로 동작. 동적 지도로 업그레이드 시:
+1. https://developers.kakao.com/ → 내 애플리케이션 생성
+2. 플랫폼 → Web → 사이트 도메인에 `https://nasari-fourpla.vercel.app` 등록
+3. 앱 키 → **JavaScript 키** 복사
+4. `contact.html` 내 `YOUR_KAKAO_JS_KEY` 교체 (주석 블록 해제, iframe 블록 제거)
+5. 정확 좌표는 카카오 좌표변환기로 재측정 후 `LatLng(35.3375, 129.3447)` 갱신

@@ -1,6 +1,36 @@
 /* NASARI FOUR PLA — main.css */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 
+/* Paperlogy — 헤드라인 전용 (눈누 jsdelivr 미러) */
+@font-face {
+  font-family: 'Paperlogy';
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Paperlogy';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Paperlogy';
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-3@1.0/Paperlogy-9Black.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Paperlogy';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+}
+
 :root {
   --ocean-deep: #0E2A3B;
   --ocean: #1E4F6E;
@@ -29,6 +59,20 @@ body {
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
+
+/* 헤드라인 = Paperlogy, 본문 = Pretendard */
+h1, h2, h3,
+.nav-brand,
+.sec-title,
+.hero-eyebrow,
+.sec-eyebrow,
+.store-cat,
+.store-hero h1,
+.store-hero .cat {
+  font-family: 'Paperlogy', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+h1, h2, .hero h1, .sec-title, .store-hero h1 { font-weight: 800; }
+h3, .store-body h3, .concept-card h3 { font-weight: 600; }
 
 /* === Layout === */
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }

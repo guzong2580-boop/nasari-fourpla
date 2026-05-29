@@ -44,6 +44,40 @@
           <dt>이메일</dt><dd>(준비 중)</dd>
           <dt>주변 관광지</dt><dd>간절곶 5분 · 서생포왜성 10분</dd>
         </dl>
+
+        <div class="sec-eyebrow" style="margin-top:48px;">MAP</div>
+        <h2 class="sec-title">오시는 길</h2>
+        <!-- 카카오맵 검색 임베드 (API 키 불필요) -->
+        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3; background:var(--sand);">
+          <iframe
+            src="https://map.kakao.com/?q=%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9A%B8%EC%A3%BC%EA%B5%B0%20%EC%84%9C%EC%83%9D%EB%A9%B4%20%EB%82%98%EC%82%AC%ED%95%B4%EC%95%88%EA%B8%B8%2033"
+            width="100%" height="100%" frameborder="0" style="border:0; display:block;"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="나사리 포플라 위치 — 카카오맵"></iframe>
+        </div>
+        <p style="margin-top:10px; font-size:13px; color:var(--ink-soft);">
+          <a href="https://map.kakao.com/?q=%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9A%B8%EC%A3%BC%EA%B5%B0%20%EC%84%9C%EC%83%9D%EB%A9%B4%20%EB%82%98%EC%82%AC%ED%95%B4%EC%95%88%EA%B8%B8%2033"
+             target="_blank" rel="noopener">카카오맵에서 크게 보기 →</a>
+        </p>
+
+        <!--
+          ============================================================
+          카카오 JS API 업그레이드 (사용자 키 발급 후 활성화)
+          1) https://developers.kakao.com/ → 내 애플리케이션 생성
+          2) 플랫폼 → Web → 사이트 도메인 등록 (https://nasari-fourpla.vercel.app)
+          3) 앱 키 → JavaScript 키 복사
+          4) 아래 YOUR_KAKAO_JS_KEY 교체 후 위 iframe 블록 제거, 아래 주석 해제
+          ============================================================
+        <div id="kakao-map" style="width:100%; aspect-ratio:4/3; border-radius:12px;"></div>
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_JS_KEY"></script>
+        <script>
+          const mapEl = document.getElementById('kakao-map');
+          const center = new kakao.maps.LatLng(35.3375, 129.3447);
+          const map = new kakao.maps.Map(mapEl, { center, level: 3 });
+          new kakao.maps.Marker({ map, position: center });
+          // 정확 좌표는 카카오 주소→좌표 변환 또는 지도 클릭으로 재측정 권장
+        </script>
+        -->
       </div>
       <div>
         <div class="sec-eyebrow">FORM</div>
