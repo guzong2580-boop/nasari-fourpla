@@ -104,16 +104,28 @@ section { padding: 96px 0; }
   position: relative;
   min-height: 88vh;
   display: flex; align-items: center;
-  background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 60%, var(--ocean-light) 100%);
+  background: var(--ocean-deep);
   color: var(--white);
   overflow: hidden;
 }
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 70% 30%, rgba(245,239,227,.18), transparent 60%);
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  display: block;
+}
+.hero-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.55) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.10) 50%, rgba(0,0,0,.20) 100%);
   pointer-events: none;
 }
-.hero-inner { position: relative; z-index: 1; padding: 80px 0; }
+.hero-inner { position: relative; z-index: 2; padding: 80px 0; }
+.hero h1, .hero p, .hero-eyebrow { text-shadow: 0 2px 12px rgba(0,0,0,.45); }
 .hero-eyebrow {
   display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .2em;
   color: var(--sand-warm); margin-bottom: 24px; text-transform: uppercase;
