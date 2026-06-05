@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1E4F6E"/>
+      <stop offset="1" stop-color="#0E2A3B"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- sand wave baseline -->
+  <path d="M64 372 C 150 340, 230 404, 320 372 S 470 348, 448 372 L448 400 C 360 432, 270 372, 180 404 S 64 420, 64 400 Z" fill="#EAD9B8" opacity="0.9"/>
+  <!-- monogram N -->
+  <text x="256" y="300" font-family="'Paperlogy','Pretendard',Arial,sans-serif" font-size="300" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="-8">N</text>
+</svg>

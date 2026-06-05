@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>연락처 · 매장 임대·문의 | NASARI FOUR PLA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0E2A3B">
 <meta name="description" content="나사리 포플라 매장 임대·운영 문의, 위치 안내. 울산 울주군 서생면 나사해안길 33.">
 <link rel="canonical" href="https://nasaripopla.com/contact.html">
 
@@ -13,12 +18,16 @@
 <meta property="og:title" content="연락처 · 매장 임대·문의 | NASARI FOUR PLA">
 <meta property="og:description" content="나사리 포플라 매장 임대·운영 문의, 위치 안내.">
 <meta property="og:url" content="https://nasaripopla.com/contact.html">
-<meta property="og:image" content="https://nasaripopla.com/assets/img/og-default.svg">
+<meta property="og:image" content="https://nasaripopla.com/assets/img/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="나사리 포플라 — 한 동, 4업종, 1테이블">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="연락처 · 매장 임대·문의 | NASARI FOUR PLA">
 <meta name="twitter:description" content="나사리 포플라 매장 임대·운영 문의, 위치 안내.">
-<meta name="twitter:image" content="https://nasaripopla.com/assets/img/og-default.svg">
+<meta name="twitter:image" content="https://nasaripopla.com/assets/img/og-default.jpg">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
@@ -68,13 +77,8 @@
 
         <div class="sec-eyebrow" style="margin-top:48px;">MAP</div>
         <h2 class="sec-title">오시는 길</h2>
-        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3; background:var(--sand);">
-          <iframe
-            src="https://map.kakao.com/?q=%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9A%B8%EC%A3%BC%EA%B5%B0%20%EC%84%9C%EC%83%9D%EB%A9%B4%20%EB%82%98%EC%82%AC%ED%95%B4%EC%95%88%EA%B8%B8%2033"
-            width="100%" height="100%" frameborder="0" style="border:0; display:block;"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="나사리 포플라 위치 — 카카오맵"></iframe>
-        </div>
+        <div id="kakao-map" role="img" aria-label="나사리 포플라 위치 지도 — 울주군 서생면 나사해안길 33"
+             style="border-radius:12px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3; background:var(--sand);"></div>
         <p style="margin-top:10px; font-size:13px; color:var(--ink-soft);">
           <a href="https://map.kakao.com/?q=%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9A%B8%EC%A3%BC%EA%B5%B0%20%EC%84%9C%EC%83%9D%EB%A9%B4%20%EB%82%98%EC%82%AC%ED%95%B4%EC%95%88%EA%B8%B8%2033"
              target="_blank" rel="noopener">카카오맵에서 크게 보기 →</a>
@@ -111,5 +115,27 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<!-- Kakao Maps JS SDK -->
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=__KAKAO_JS_KEY__&autoload=false" defer></script>
+<script>
+  (function () {
+    function initMap() {
+      if (!window.kakao || !window.kakao.maps) return;
+      kakao.maps.load(function () {
+        var pos = new kakao.maps.LatLng(35.3569942, 129.3377481);
+        var map = new kakao.maps.Map(document.getElementById('kakao-map'), { center: pos, level: 3 });
+        var marker = new kakao.maps.Marker({ position: pos });
+        marker.setMap(map);
+        var iw = new kakao.maps.InfoWindow({
+          content: '<div style="padding:7px 12px;font-size:13px;font-weight:600;white-space:nowrap;">나사리 포플라</div>'
+        });
+        iw.open(map, marker);
+        map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
+      });
+    }
+    // SDK script has defer; run after load
+    window.addEventListener('load', initMap);
+  })();
+</script>
 </body>
 </html>
