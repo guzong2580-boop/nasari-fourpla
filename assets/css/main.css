@@ -135,7 +135,9 @@ section { padding: 96px 0; }
 }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.15) 55%, rgba(0,0,0,.50) 100%);
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.60) 0%, rgba(0,0,0,.38) 38%, rgba(0,0,0,.12) 68%, rgba(0,0,0,0) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,.22) 45%, rgba(0,0,0,.58) 100%);
   pointer-events: none;
 }
 .hero-inner { position: relative; z-index: 2; padding: 80px 24px; width: 100%; }
@@ -144,17 +146,17 @@ section { padding: 96px 0; }
   .hero-inner { padding: 64px 24px; }
   .hero p { max-width: 100%; }
 }
-.hero h1, .hero p, .hero-eyebrow { text-shadow: 0 2px 12px rgba(0,0,0,.45); }
+.hero h1, .hero p, .hero-eyebrow { text-shadow: 0 2px 4px rgba(0,0,0,.55), 0 4px 22px rgba(0,0,0,.55); }
 .hero-eyebrow {
-  display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .2em;
-  color: var(--sand-warm); margin-bottom: 24px; text-transform: uppercase;
+  display: inline-block; font-size: clamp(14px, 1.3vw, 17px); font-weight: 700; letter-spacing: .22em;
+  color: var(--sand-warm); margin-bottom: 26px; text-transform: uppercase;
 }
 .hero h1 {
-  font-size: clamp(40px, 6vw, 72px); font-weight: 800; line-height: 1.1;
-  letter-spacing: -.02em; margin-bottom: 24px;
+  font-size: clamp(48px, 7.2vw, 88px); font-weight: 800; line-height: 1.06;
+  letter-spacing: -.02em; margin-bottom: 26px;
 }
 .hero h1 em { font-style: normal; color: var(--sand-warm); }
-.hero p { font-size: clamp(16px, 1.6vw, 20px); max-width: 640px; color: rgba(255,255,255,.85); margin-bottom: 40px; }
+.hero p { font-size: clamp(16px, 1.7vw, 21px); max-width: 640px; color: rgba(255,255,255,.92); margin-bottom: 40px; line-height: 1.6; }
 .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn {
   display: inline-block; padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 15px;
