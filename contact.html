@@ -78,7 +78,15 @@
         <div class="sec-eyebrow" style="margin-top:48px;">MAP</div>
         <h2 class="sec-title">오시는 길</h2>
         <div id="kakao-map" role="img" aria-label="나사리 포플라 위치 지도 — 울주군 서생면 나사해안길 33"
-             style="border-radius:12px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3; background:var(--sand);"></div>
+             style="border-radius:12px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3; background:var(--sand); position:relative;">
+          <div id="map-fallback" style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; padding:24px;">
+            <div style="font-size:15px; font-weight:600; color:var(--ocean-deep);">울산 울주군 서생면 나사해안길 33</div>
+            <div style="font-size:13px; color:var(--ink-soft);">간절곶 5분 · 서생포왜성 10분</div>
+            <a href="https://map.kakao.com/?q=%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9A%B8%EC%A3%BC%EA%B5%B0%20%EC%84%9C%EC%83%9D%EB%A9%B4%20%EB%82%98%EC%82%AC%ED%95%B4%EC%95%88%EA%B8%B8%2033"
+               target="_blank" rel="noopener"
+               style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--ocean-deep); color:#fff; font-size:14px; font-weight:600; text-decoration:none;">카카오맵에서 길찾기 →</a>
+          </div>
+        </div>
         <p style="margin-top:10px; font-size:13px; color:var(--ink-soft);">
           <a href="https://map.kakao.com/?q=%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9A%B8%EC%A3%BC%EA%B5%B0%20%EC%84%9C%EC%83%9D%EB%A9%B4%20%EB%82%98%EC%82%AC%ED%95%B4%EC%95%88%EA%B8%B8%2033"
              target="_blank" rel="noopener">카카오맵에서 크게 보기 →</a>
@@ -122,8 +130,11 @@
     function initMap() {
       if (!window.kakao || !window.kakao.maps) return;
       kakao.maps.load(function () {
+        var container = document.getElementById('kakao-map');
+        var fb = document.getElementById('map-fallback');
+        if (fb) fb.remove();
         var pos = new kakao.maps.LatLng(35.3569942, 129.3377481);
-        var map = new kakao.maps.Map(document.getElementById('kakao-map'), { center: pos, level: 3 });
+        var map = new kakao.maps.Map(container, { center: pos, level: 3 });
         var marker = new kakao.maps.Marker({ position: pos });
         marker.setMap(map);
         var iw = new kakao.maps.InfoWindow({
