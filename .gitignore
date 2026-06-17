@@ -8,4 +8,11 @@ node_modules/
 *.bak
 ~$*
 
+# 카카오톡 원본 사진 (최적화 산출물만 커밋)
+이미지/
+
+# 로컬 검증용 스크린샷
+_mobile_*.png
+_verify_*.png
+
 .vercel
