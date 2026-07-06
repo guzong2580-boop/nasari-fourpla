@@ -16,7 +16,7 @@
 │   ├── wanyeonhan.html    완연한 나사리 (한식 · 화덕생선구이)
 │   ├── bamai.html         바마이 (베트남 쌀국수)
 │   ├── seoridam.html      서리담 (카페 · 디저트)
-│   └── onbook.html        온북국수 (국수 · 분식)
+│   └── onbook.html        온복국수 (국수 · 분식)
 ├── assets/
 │   ├── css/main.css
 │   ├── js/main.js
