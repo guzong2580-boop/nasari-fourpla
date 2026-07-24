@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="QNTLwipX5OxlS1JNTWQ3G5ZDMAhiSn7l3uIyxObncwA" />
 <meta name="naver-site-verification" content="d5f9d89b19d9bffdf7ba61abae334e1d60ee0015" />
-<title>나사리 포플라 NASARI FOUR PLA · 나사리의 맛집, 다양한 맛을 즐길 수 있는 공간</title>
-<meta name="description" content="울산 간절곶 5분, 나사해안길 33. 한식 화덕생선구이·쌀국수·카페·국수를 오션뷰 한 동에서 즐기는 복합 외식공간, 나사리 포플라.">
+<title>나사리 포플라 NASARI FOUR PLA · 간절곶 맛집·카페가 모인 오션뷰 복합 외식공간</title>
+<meta name="description" content="울산 간절곶 5분, 나사해안길 33. 한식 화덕생선구이·쌀국수·카페·국수를 오션뷰 한 동에서 즐기는 간절곶 복합 외식공간, 나사리 포플라. 일출 명소 여행 코스의 든든한 한 끼.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -54,7 +54,15 @@
     "@type": "GeoCoordinates",
     "latitude": 35.3569942,
     "longitude": 129.3377481
-  }
+  },
+  "hasMap": "https://map.kakao.com/link/map/나사리 포플라,35.3569942,129.3377481",
+  "containsPlace": [
+    { "@type": "Restaurant", "name": "완연한 나사리", "servesCuisine": "한식 화덕생선구이", "url": "https://nasaripopla.com/stores/wanyeonhan" },
+    { "@type": "Restaurant", "name": "바마이 쌀국수", "servesCuisine": "베트남 쌀국수", "url": "https://nasaripopla.com/stores/bamai" },
+    { "@type": "CafeOrCoffeeShop", "name": "서리담 카페", "url": "https://nasaripopla.com/stores/seoridam" },
+    { "@type": "Restaurant", "name": "온복국수", "servesCuisine": "국수·분식", "url": "https://nasaripopla.com/stores/onbook" }
+  ],
+  "touristType": "간절곶 일출 관광객, 가족 여행객, 해안 드라이브 여행객"
 }
 </script>
 
@@ -174,6 +182,33 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--sunrise); outli
     linear-gradient(178deg, oklch(24% 0.045 235 / .28) 0%, transparent 34%),
     linear-gradient(2deg, oklch(22% 0.05 238 / .92) 0%, oklch(24% 0.05 235 / .55) 30%, oklch(30% 0.04 230 / .12) 62%, transparent 100%);
 }
+/* 일출 글로우 — 수평선 위로 번지는 코랄 */
+.hero-glow {
+  position: absolute; z-index: 1; pointer-events: none;
+  left: 50%; bottom: -12%; width: 130vw; height: 60vh;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 55% 62% at 62% 100%,
+    oklch(68% 0.16 42 / .34) 0%, oklch(72% 0.13 50 / .16) 38%, transparent 72%);
+  mix-blend-mode: screen;
+  opacity: 0; animation: glow 2.4s ease .5s forwards;
+}
+@keyframes glow { to { opacity: 1; } }
+/* 스크롤 유도 */
+.scroll-cue {
+  position: absolute; z-index: 4; right: clamp(20px, 4vw, 48px); bottom: clamp(104px, 14vh, 160px);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--on-dark-dim); font-size: 11px; font-weight: 700; letter-spacing: .3em;
+  writing-mode: vertical-rl; text-transform: uppercase;
+  opacity: 0; animation: fade .9s ease 1.4s forwards;
+}
+.scroll-cue::after {
+  content: ''; width: 1px; height: 52px;
+  background: linear-gradient(180deg, var(--sunrise-soft), transparent);
+  animation: cue 2.2s var(--ease-exp) infinite;
+  transform-origin: top;
+}
+@keyframes cue { 0% { transform: scaleY(0); } 45% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+@media (max-width: 640px) { .scroll-cue { display: none; } }
 .hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(88px, 13vh, 150px); }
 .hero-eyebrow {
   display: flex; align-items: center; gap: 14px;
@@ -323,7 +358,13 @@ section { position: relative; }
   color: var(--sunrise-soft); margin-bottom: 12px;
 }
 .store-copy h3 { font-weight: 900; font-size: clamp(26px, 3vw, 38px); letter-spacing: -.01em; margin-bottom: 14px; }
-.store-copy p { color: var(--on-dark-dim); font-size: 15.5px; max-width: 30em; margin-bottom: 22px; }
+.store-copy p { color: var(--on-dark-dim); font-size: 15.5px; max-width: 30em; margin-bottom: 18px; }
+.store-copy .menus { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; list-style: none; }
+.store-copy .menus li {
+  font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
+  color: var(--sunrise-soft); border: 1px solid oklch(80% 0.09 55 / .38);
+  padding: 6px 13px; border-radius: 999px;
+}
 .store-copy .go {
   display: inline-flex; align-items: center; gap: 10px;
   font-weight: 700; font-size: 14px; color: var(--on-dark);
@@ -359,6 +400,45 @@ section { position: relative; }
   opacity: 0; transition: opacity .4s; pointer-events: none;
 }
 .g:hover figcaption { opacity: 1; }
+
+/* ===== COURSE — 간절곶 반나절 코스 ===== */
+.course {
+  background: linear-gradient(180deg, var(--sand) 0%, var(--sand-deep) 100%);
+  padding: clamp(84px, 12vh, 140px) 0;
+}
+.course-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(18px, 2.6vw, 34px);
+  counter-reset: step;
+}
+.course-step {
+  position: relative; background: oklch(99% 0.005 90);
+  border: 1px solid var(--foam-line); border-radius: 16px;
+  padding: clamp(22px, 2.6vw, 32px);
+  transition: transform .35s var(--ease-exp), box-shadow .35s;
+}
+.course-step:hover { transform: translateY(-6px); box-shadow: 0 18px 44px oklch(24% 0.045 235 / .1); }
+.course-step .time {
+  display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .14em;
+  color: var(--sunrise); text-transform: uppercase; margin-bottom: 14px;
+  font-family: 'Paperlogy';
+}
+.course-step h3 { font-weight: 700; font-size: clamp(17px, 1.7vw, 20px); color: var(--ink); margin-bottom: 10px; letter-spacing: -.01em; }
+.course-step p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+.course-step::before {
+  counter-increment: step; content: counter(step, decimal-leading-zero);
+  position: absolute; top: -14px; right: 16px;
+  font-family: 'Paperlogy'; font-weight: 900; font-size: 40px; line-height: 1;
+  color: transparent; -webkit-text-stroke: 1.2px oklch(68% 0.16 42 / .45);
+  pointer-events: none;
+}
+.course-step--here { background: var(--abyss); border-color: var(--abyss); }
+.course-step--here h3 { color: var(--on-dark); }
+.course-step--here p { color: var(--on-dark-dim); }
+.course-step--here .time { color: var(--sunrise-soft); }
+.course-note { margin-top: 26px; font-size: 13.5px; color: var(--ink-soft); }
+@media (max-width: 980px) { .course-steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .course-steps { grid-template-columns: 1fr; } }
 
 /* ===== LOCATION — 물때표 스타일 ===== */
 .location { background: var(--sand); padding: clamp(84px, 12vh, 140px) 0; }
@@ -397,11 +477,35 @@ section { position: relative; }
 .footer a:hover { color: var(--sunrise-soft); }
 .footer-bottom { padding: 24px 0 34px; font-size: 12.5px; color: oklch(78% 0.02 210 / .55); }
 
+/* ===== 모바일 하단 고정 CTA ===== */
+.sticky-cta {
+  display: none;
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 300;
+  padding: 10px clamp(14px, 4vw, 20px) calc(10px + env(safe-area-inset-bottom, 0px));
+  background: color-mix(in oklab, var(--abyss) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid oklch(96% 0.008 200 / .14);
+  gap: 10px;
+}
+.sticky-cta a {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  padding: 13px 10px; border-radius: 999px; font-weight: 700; font-size: 14.5px;
+}
+.sticky-cta .cta-map { background: var(--sunrise); color: oklch(98% 0.01 60); }
+.sticky-cta .cta-ask { color: var(--on-dark); border: 1px solid oklch(96% 0.008 200 / .35); }
+@media (max-width: 760px) {
+  .sticky-cta { display: flex; }
+  .footer { padding-bottom: 76px; }
+}
+
 /* ===== 모션 감소 존중 ===== */
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg img, .hero h1 .line > span, .hero-sub, .hero-cta { animation: none; transform: none; opacity: 1; }
+  .hero-bg img, .hero h1 .line > span, .hero-sub, .hero-cta, .hero-glow, .scroll-cue { animation: none; transform: none; opacity: 1; }
+  .hero-glow { transform: translateX(-50%); }
+  .scroll-cue::after { animation: none; }
   .tide-track { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .course-step:hover { transform: none; }
   html { scroll-behavior: auto; }
 }
 </style>
@@ -416,8 +520,9 @@ section { position: relative; }
       <li><a href="#concept">건물소개</a></li>
       <li><a href="#stores">4매장</a></li>
       <li><a href="#gallery">공간</a></li>
+      <li><a href="#course">간절곶 코스</a></li>
       <li><a href="#location">오시는 길</a></li>
-      <li><a href="contact.html">문의</a></li>
+      <li><a href="/contact">문의</a></li>
     </ul>
   </div>
 </nav>
@@ -430,6 +535,8 @@ section { position: relative; }
     <img src="assets/img/hero.webp" alt="동해를 마주한 나사리 포플라 건물 전경 — 통창 너머로 바다가 보이는 해안가 복합 외식공간" fetchpriority="high">
   </div>
   <div class="hero-tint" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="scroll-cue" aria-hidden="true">Scroll</div>
   <div class="wrap hero-inner">
     <div class="hero-eyebrow">Ulsan · Ganjeolgot 5 min</div>
     <h1>
@@ -495,7 +602,7 @@ section { position: relative; }
     <article class="store-row reveal">
       <div class="store-media">
         <span class="idx" aria-hidden="true">01</span>
-        <a href="stores/wanyeonhan.html">
+        <a href="/stores/wanyeonhan">
           <img src="assets/img/store-wanyeonhan.webp" alt="완연한 나사리 — 화덕 생선구이 정식이 오르는 홀" loading="lazy" width="800" height="500">
         </a>
       </div>
@@ -503,14 +610,15 @@ section { position: relative; }
         <div class="role">Anchor · 한식 화덕생선구이 · 50평</div>
         <h3>완연한 나사리</h3>
         <p>참나무 화덕에 구워낸 생선구이 정식. 건물 최대 규모의 앵커 한식당으로, 발길이 시작되는 곳.</p>
-        <a class="go" href="stores/wanyeonhan.html">자세히 보기 →</a>
+        <ul class="menus" aria-label="완연한 나사리 대표 메뉴"><li>화덕 생선구이 정식</li><li>제육정식</li></ul>
+        <a class="go" href="/stores/wanyeonhan">자세히 보기 →</a>
       </div>
     </article>
 
     <article class="store-row reveal">
       <div class="store-media">
         <span class="idx" aria-hidden="true">02</span>
-        <a href="stores/bamai.html">
+        <a href="/stores/bamai">
           <img src="assets/img/store-bamai.webp" alt="바마이 쌀국수 — PHO 카운터와 홀 좌석" loading="lazy" width="800" height="500">
         </a>
       </div>
@@ -518,14 +626,15 @@ section { position: relative; }
         <div class="role">Key Tenant · 베트남 쌀국수 · 25평</div>
         <h3>바마이 쌀국수</h3>
         <p>현지식 육수와 향신료. 한식이 부담스러운 일행까지 품는 두 번째 선택지.</p>
-        <a class="go" href="stores/bamai.html">자세히 보기 →</a>
+        <ul class="menus" aria-label="바마이 쌀국수 대표 메뉴"><li>양지 쌀국수</li><li>베트남 현지식</li></ul>
+        <a class="go" href="/stores/bamai">자세히 보기 →</a>
       </div>
     </article>
 
     <article class="store-row reveal">
       <div class="store-media">
         <span class="idx" aria-hidden="true">03</span>
-        <a href="stores/seoridam.html">
+        <a href="/stores/seoridam">
           <img src="assets/img/store-seoridam.webp" alt="서리담 카페 — 통창으로 바다가 보이는 카페 좌석" loading="lazy" width="800" height="500">
         </a>
       </div>
@@ -533,14 +642,15 @@ section { position: relative; }
         <div class="role">Sub-Anchor · 카페 · 25평</div>
         <h3>서리담 카페</h3>
         <p>식사 후 커피 한 잔을 더 머물게 하는 오션뷰 좌석. 체류시간과 객단가를 함께 끌어올립니다.</p>
-        <a class="go" href="stores/seoridam.html">자세히 보기 →</a>
+        <ul class="menus" aria-label="서리담 카페 대표 메뉴"><li>커피</li><li>디저트</li><li>오션뷰 좌석</li></ul>
+        <a class="go" href="/stores/seoridam">자세히 보기 →</a>
       </div>
     </article>
 
     <article class="store-row reveal">
       <div class="store-media">
         <span class="idx" aria-hidden="true">04</span>
-        <a href="stores/onbook.html">
+        <a href="/stores/onbook">
           <img src="assets/img/store-onbook.webp" alt="온복국수 — 국수 카운터와 좌석" loading="lazy" width="800" height="500">
         </a>
       </div>
@@ -548,7 +658,8 @@ section { position: relative; }
         <div class="role">Filler · 국수 · 분식 · 20평</div>
         <h3>온복국수</h3>
         <p>따뜻한 국물 한 그릇. 전 연령 접근성과 빠른 회전으로 가족 단위 한 상을 완성합니다.</p>
-        <a class="go" href="stores/onbook.html">자세히 보기 →</a>
+        <ul class="menus" aria-label="온복국수 대표 메뉴"><li>물밀면</li><li>국수</li></ul>
+        <a class="go" href="/stores/onbook">자세히 보기 →</a>
       </div>
     </article>
   </div>
@@ -587,6 +698,40 @@ section { position: relative; }
   </div>
 </section>
 
+<!-- COURSE — 간절곶 반나절 코스 -->
+<section id="course" class="course" aria-labelledby="course-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Ganjeolgot Course</div>
+      <h2 id="course-h" class="sec-title">일출 보고, 바다 한 끼</h2>
+      <p class="sec-lead">해가 가장 먼저 뜨는 간절곶과 나사리해수욕장 사이, 나사리 포플라를 중심에 둔 반나절 코스를 제안합니다.</p>
+    </div>
+    <div class="course-steps">
+      <div class="course-step reveal">
+        <span class="time">Sunrise</span>
+        <h3>간절곶 일출·등대</h3>
+        <p>한반도에서 해가 가장 먼저 뜨는 곶. 소망우체통과 등대를 배경으로 하루를 엽니다. 차로 5분 거리.</p>
+      </div>
+      <div class="course-step reveal" data-delay="1">
+        <span class="time">Walk</span>
+        <h3>나사리해수욕장 산책</h3>
+        <p>완만한 백사장을 따라 걷는 아침 바다. 나사리 포플라 바로 앞, 걸어서 닿는 해변입니다.</p>
+      </div>
+      <div class="course-step course-step--here reveal" data-delay="2">
+        <span class="time">Meal · Coffee</span>
+        <h3>나사리 포플라에서 한 끼</h3>
+        <p>화덕 생선구이 정식부터 쌀국수, 국수, 오션뷰 커피까지. 취향대로 골라 한 테이블에서 함께.</p>
+      </div>
+      <div class="course-step reveal" data-delay="3">
+        <span class="time">Drive</span>
+        <h3>서생포왜성·해안 드라이브</h3>
+        <p>차로 10분, 서생포왜성 전망과 이어지는 31번 국도 해안 드라이브로 여정을 마무리합니다.</p>
+      </div>
+    </div>
+    <p class="course-note reveal">※ 매장별 영업시간은 각 매장 상세 페이지에서 확인해 주세요.</p>
+  </div>
+</section>
+
 <!-- LOCATION -->
 <section id="location" class="location" aria-labelledby="location-h">
   <div class="wrap">
@@ -600,11 +745,12 @@ section { position: relative; }
           <div><dt>주소</dt><dd>울산광역시 울주군 서생면 나사해안길 33, 103동</dd></div>
           <div><dt>건물명</dt><dd>나사리 포플라 (NASARI FOUR PLA)</dd></div>
           <div><dt>매장</dt><dd>4개 (한식 · 쌀국수 · 카페 · 국수)</dd></div>
-          <div><dt>주변</dt><dd>간절곶 차량 5분 · 서생포왜성 10분</dd></div>
+          <div><dt>주변</dt><dd>간절곶 차량 5분 · 서생포왜성 10분 · 나사리해수욕장 도보</dd></div>
+          <div><dt>영업시간</dt><dd>매장별 상이 — 각 매장 상세 페이지 참고</dd></div>
         </dl>
         <div class="loc-cta">
           <a href="https://map.kakao.com/link/to/나사리 포플라,35.3569942,129.3377481" target="_blank" rel="noopener" class="btn btn-deep">카카오맵 길찾기</a>
-          <a href="contact.html" class="btn btn-line" style="color: var(--ink); border-color: var(--foam-line);">문의하기</a>
+          <a href="/contact" class="btn btn-line" style="color: var(--ink); border-color: var(--foam-line);">문의하기</a>
         </div>
       </div>
       <iframe class="loc-map reveal" src="https://maps.google.com/maps?q=35.3569942,129.3377481&amp;z=16&amp;hl=ko&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="나사리 포플라 위치 지도"></iframe>
@@ -623,19 +769,25 @@ section { position: relative; }
       </div>
       <div>
         <h4>매장</h4>
-        <p><a href="stores/wanyeonhan.html">완연한 나사리</a><br>
-        <a href="stores/bamai.html">바마이 쌀국수</a><br>
-        <a href="stores/seoridam.html">서리담 카페</a><br>
-        <a href="stores/onbook.html">온복국수</a></p>
+        <p><a href="/stores/wanyeonhan">완연한 나사리</a><br>
+        <a href="/stores/bamai">바마이 쌀국수</a><br>
+        <a href="/stores/seoridam">서리담 카페</a><br>
+        <a href="/stores/onbook">온복국수</a></p>
       </div>
       <div>
         <h4>Contact</h4>
-        <p><a href="contact.html">문의하기</a><br>울산 울주군 서생면<br>나사해안길 33</p>
+        <p><a href="/contact">문의하기</a><br>울산 울주군 서생면<br>나사해안길 33</p>
       </div>
     </div>
     <div class="footer-bottom">© 2026 NASARI FOUR PLA. All rights reserved.</div>
   </div>
 </footer>
+
+<!-- 모바일 하단 고정 CTA -->
+<div class="sticky-cta" role="navigation" aria-label="빠른 실행">
+  <a class="cta-map" href="https://map.kakao.com/link/to/나사리 포플라,35.3569942,129.3377481" target="_blank" rel="noopener">카카오맵 길찾기</a>
+  <a class="cta-ask" href="/contact">문의하기</a>
+</div>
 
 <script>
 (function () {
