@@ -259,8 +259,19 @@ section { position: relative; }
 .loc-table > div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--hairline-soft); font-size: 16px; }
 .loc-table dt { font-weight: 600; color: var(--ink); }
 .loc-table dd { color: var(--body); }
-.loc-map { width: 100%; aspect-ratio: 4 / 3; border: 0; border-radius: var(--r-md); background: var(--surface-soft); }
+.loc-map { width: 100%; aspect-ratio: 4 / 3; border: 0; border-radius: var(--r-md); background: var(--surface-soft); display: block; }
 .loc-cta { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* 지도 뮤트 — 캐논 준수: 지도는 회색조로 가라앉히고 브랜드 핀 하나만 얹는다 */
+.map-quiet { position: relative; width: 100%; border-radius: var(--r-md); overflow: hidden; }
+.map-quiet iframe,
+.map-quiet > div:first-of-type { filter: grayscale(1) contrast(0.92) brightness(1.04); }
+.map-pin {
+  position: absolute; left: 50%; top: 50%; width: 34px; height: 45px;
+  transform: translate(-50%, -100%); z-index: 10; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 32'%3E%3Cpath d='M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20C24 5.4 18.6 0 12 0z' fill='%23ff385c'/%3E%3Ccircle cx='12' cy='12' r='4.5' fill='%23fff'/%3E%3C/svg%3E") center / contain no-repeat;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
 @media (max-width: 860px) { .loc-grid { grid-template-columns: 1fr; gap: 24px; } }
 
 /* ============================================================
