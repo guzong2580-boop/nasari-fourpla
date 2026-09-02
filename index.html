@@ -324,8 +324,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
           <a href="/contact" class="btn btn-line btn-line--ink">문의하기</a>
         </div>
       </div>
-      <div class="map-quiet reveal">
-        <a class="map-link" href="https://map.naver.com/p/search/%EB%82%98%EC%82%AC%ED%95%B4%EC%95%88%EA%B8%B8%2033" target="_blank" rel="noopener" aria-label="네이버 지도에서 크게 보기">
+      <div class="map-quiet reveal" id="kakao-map" role="region" aria-label="나사리 포플라 위치 지도">
+        <a class="map-link" id="map-fallback" href="https://map.naver.com/p/search/%EB%82%98%EC%82%AC%ED%95%B4%EC%95%88%EA%B8%B8%2033" target="_blank" rel="noopener" aria-label="네이버 지도에서 크게 보기">
           <img class="loc-map" src="/assets/img/map-naver.webp" alt="나사리 포플라 위치 지도 — 울산 울주군 서생면 나사해안길 33" loading="lazy" width="1200" height="900">
         </a>
         <span class="map-pin" aria-hidden="true"></span>
@@ -400,6 +400,31 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   items.forEach(function (el) { io.observe(el); });
 })();
+</script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3e2d49b152ded23772d3a7930ec3cb92&autoload=false" defer></script>
+<script>
+  (function () {
+    function initMap() {
+      if (!window.kakao || !window.kakao.maps) return;
+      kakao.maps.load(function () {
+        var container = document.getElementById('kakao-map');
+        var fb = document.getElementById('map-fallback');
+        if (fb) fb.remove();
+        var pin = container.querySelector('.map-pin');
+        if (pin) pin.remove();
+        var pos = new kakao.maps.LatLng(35.3569942, 129.3377481);
+        var map = new kakao.maps.Map(container, { center: pos, level: 3 });
+        var marker = new kakao.maps.Marker({ position: pos });
+        marker.setMap(map);
+        var iw = new kakao.maps.InfoWindow({
+          content: '<div style="padding:7px 12px;font-size:13px;font-weight:600;white-space:nowrap;">나사리 포플라</div>'
+        });
+        iw.open(map, marker);
+        map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
+      });
+    }
+    window.addEventListener('load', initMap);
+  })();
 </script>
 </body>
 </html>
