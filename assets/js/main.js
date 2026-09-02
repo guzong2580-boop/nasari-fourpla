@@ -1,36 +1,58 @@
-// NASARI FOUR PLA — main.js
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.nav-toggle');
-  const menu = document.querySelector('.nav-menu');
+// NASARI FOUR PLA — main.js (서브페이지 공통)
+(function () {
+  var nav = document.querySelector('.nav');
+  var toggle = document.querySelector('.nav-toggle');
+  var menu = document.querySelector('.nav-menu');
+
+  // 모바일 메뉴
   if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
+    toggle.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+      if (nav) nav.classList.toggle('menu-open', open);
     });
   }
-  // Mark active nav link
-  const path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-menu a').forEach(a => {
-    const href = a.getAttribute('href').split('/').pop();
-    if (href === path) {
-      a.classList.add('active');
-      a.setAttribute('aria-current', 'page');
-    }
-  });
-});
 
-/* 임시: 카카오맵 승인 후 복구 — index.html에서 #kakaoMap div + SDK script 복구하고 아래 블록 주석 해제
-// Kakao Map
-if (window.kakao && kakao.maps) {
-  kakao.maps.load(function(){
-    var c=document.getElementById('kakaoMap'); if(!c) return;
-    var pos=new kakao.maps.LatLng(35.3569942,129.3377481);
-    var map=new kakao.maps.Map(c,{center:pos,level:3});
-    var marker=new kakao.maps.Marker({position:pos}); marker.setMap(map);
-    var iw=new kakao.maps.InfoWindow({content:'<div style="padding:6px 10px;font-size:13px;white-space:nowrap;">나사리 포플라</div>'});
-    iw.open(map,marker);
-    map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
+  // 현재 페이지 표시
+  var path = location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+  document.querySelectorAll('.nav-menu a').forEach(function (a) {
+    var href = a.getAttribute('href').replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    if (href === path) a.setAttribute('aria-current', 'page');
   });
-}
-*/
+
+  // 히어로를 벗어나면 네비 solid
+  if (nav) {
+    var hero = document.querySelector('.store-hero');
+    var onScroll = function () {
+      var limit = hero ? hero.offsetHeight * 0.6 : 120;
+      nav.classList.toggle('solid', window.scrollY > limit);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // 스크롤 리빌
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  // 문의 폼 — 백엔드 연동 전까지 정직한 안내
+  var form = document.querySelector('.contact-form');
+  if (form) {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var notice = form.querySelector('.form-notice');
+      if (notice) { notice.classList.add('show'); notice.focus(); }
+    });
+  }
+})();

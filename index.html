@@ -11,7 +11,7 @@
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#122c3d">
+<meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://nasaripopla.com/">
 
 <!-- Open Graph -->
@@ -67,450 +67,19 @@
 </script>
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="preload" as="font" type="font/woff2" crossorigin
-      href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy@main/Paperlogy-9Black.woff2">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 
-<style>
-/* ============================================================
-   NASARI FOUR PLA — 2026 Coastal Redesign
-   컨셉: 간절곶 일출을 기다리는 심해 네이비 위에,
-         모래빛 낮과 코랄빛 해돋이가 교차하는 해안선.
-   ============================================================ */
-@font-face {
-  font-family: 'Paperlogy'; font-weight: 900; font-style: normal; font-display: swap;
-  src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy@main/Paperlogy-9Black.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Paperlogy'; font-weight: 700; font-style: normal; font-display: swap;
-  src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy@main/Paperlogy-7Bold.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Paperlogy'; font-weight: 500; font-style: normal; font-display: swap;
-  src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy@main/Paperlogy-5Medium.woff2') format('woff2');
-}
-
-:root {
-  /* 심해 → 해수면 → 모래 → 일출 */
-  --abyss:       oklch(24% 0.045 235);   /* 심해 네이비 */
-  --abyss-2:     oklch(30% 0.055 230);   /* 해저 그라데이션 짝 */
-  --sea:         oklch(46% 0.075 225);   /* 낮바다 */
-  --seafoam:     oklch(88% 0.025 200);   /* 포말 */
-  --sand:        oklch(96.5% 0.012 85);  /* 모래(본문 배경) */
-  --sand-deep:   oklch(92% 0.02 80);     /* 젖은 모래 */
-  --sunrise:     oklch(68% 0.16 42);     /* 간절곶 일출 코랄 */
-  --sunrise-soft:oklch(80% 0.09 55);
-  --ink:         oklch(26% 0.02 240);
-  --ink-soft:    oklch(45% 0.015 240);
-  --foam-line:   oklch(88% 0.012 90);
-  --on-dark:     oklch(96% 0.008 200);
-  --on-dark-dim: oklch(78% 0.02 210);
-  --w: 1240px;
-  --ease-exp: cubic-bezier(.16, 1, .3, 1);
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--sand); color: var(--ink);
-  line-height: 1.65; word-break: keep-all;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; text-decoration: none; }
-.wrap { max-width: var(--w); margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
-
-h1, h2, h3, .display { font-family: 'Paperlogy', 'Pretendard', sans-serif; }
-
-a:focus-visible, button:focus-visible { outline: 2px solid var(--sunrise); outline-offset: 3px; border-radius: 4px; }
-
-/* ===== NAV — 유리 아님, 물에 뜬 흰 부표 바 ===== */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  transition: background .45s var(--ease-exp), box-shadow .45s, color .3s;
-  color: var(--on-dark);
-}
-.nav.solid {
-  background: color-mix(in oklab, var(--sand) 94%, transparent);
-  backdrop-filter: blur(14px);
-  color: var(--ink);
-  box-shadow: 0 1px 0 var(--foam-line);
-}
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-.nav-brand { font-family: 'Paperlogy'; font-weight: 900; font-size: 17px; letter-spacing: .06em; }
-.nav-brand small { font-family: 'Pretendard'; font-weight: 500; font-size: 11.5px; opacity: .75; margin-left: 8px; letter-spacing: .02em; }
-.nav-menu { display: flex; gap: 30px; list-style: none; }
-.nav-menu a { font-size: 14px; font-weight: 600; opacity: .85; transition: opacity .2s; position: relative; }
-.nav-menu a::after {
-  content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0;
-  background: var(--sunrise); transition: width .35s var(--ease-exp);
-}
-.nav-menu a:hover { opacity: 1; }
-.nav-menu a:hover::after { width: 100%; }
-.nav-toggle { display: none; background: none; border: 0; font-size: 26px; cursor: pointer; color: inherit; line-height: 1; }
-@media (max-width: 860px) {
-  .nav-menu {
-    display: none; position: absolute; top: 72px; left: 0; right: 0;
-    flex-direction: column; gap: 0; background: var(--sand);
-    border-bottom: 1px solid var(--foam-line); color: var(--ink);
-  }
-  .nav-menu li { border-top: 1px solid var(--foam-line); }
-  .nav-menu a { display: block; padding: 16px clamp(20px, 4vw, 48px); }
-  .nav-menu.open { display: flex; }
-  .nav-toggle { display: block; }
-}
-
-/* ===== HERO — 심해 드렌치, 키네틱 타이포 ===== */
-.hero {
-  position: relative; min-height: 100svh;
-  display: flex; align-items: flex-end;
-  color: var(--on-dark); overflow: hidden;
-  background: var(--abyss);
-}
-.hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center;
-  animation: drift 26s var(--ease-exp) both;
-  transform-origin: 50% 60%;
-}
-@keyframes drift { from { transform: scale(1.12); } to { transform: scale(1.0); } }
-.hero-tint {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background:
-    linear-gradient(178deg, oklch(24% 0.045 235 / .28) 0%, transparent 34%),
-    linear-gradient(2deg, oklch(22% 0.05 238 / .92) 0%, oklch(24% 0.05 235 / .55) 30%, oklch(30% 0.04 230 / .12) 62%, transparent 100%);
-}
-/* 일출 글로우 — 수평선 위로 번지는 코랄 */
-.hero-glow {
-  position: absolute; z-index: 1; pointer-events: none;
-  left: 50%; bottom: -12%; width: 130vw; height: 60vh;
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse 55% 62% at 62% 100%,
-    oklch(68% 0.16 42 / .34) 0%, oklch(72% 0.13 50 / .16) 38%, transparent 72%);
-  mix-blend-mode: screen;
-  opacity: 0; animation: glow 2.4s ease .5s forwards;
-}
-@keyframes glow { to { opacity: 1; } }
-/* 스크롤 유도 */
-.scroll-cue {
-  position: absolute; z-index: 4; right: clamp(20px, 4vw, 48px); bottom: clamp(104px, 14vh, 160px);
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-  color: var(--on-dark-dim); font-size: 11px; font-weight: 700; letter-spacing: .3em;
-  writing-mode: vertical-rl; text-transform: uppercase;
-  opacity: 0; animation: fade .9s ease 1.4s forwards;
-}
-.scroll-cue::after {
-  content: ''; width: 1px; height: 52px;
-  background: linear-gradient(180deg, var(--sunrise-soft), transparent);
-  animation: cue 2.2s var(--ease-exp) infinite;
-  transform-origin: top;
-}
-@keyframes cue { 0% { transform: scaleY(0); } 45% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
-@media (max-width: 640px) { .scroll-cue { display: none; } }
-.hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(88px, 13vh, 150px); }
-.hero-eyebrow {
-  display: flex; align-items: center; gap: 14px;
-  font-size: clamp(12px, 1.2vw, 14px); font-weight: 700;
-  letter-spacing: .28em; text-transform: uppercase;
-  color: var(--sunrise-soft); margin-bottom: clamp(20px, 3vh, 34px);
-}
-.hero-eyebrow::before { content: ''; width: 44px; height: 1px; background: var(--sunrise-soft); }
-.hero h1 {
-  font-weight: 900; letter-spacing: -.015em; line-height: 1.02;
-  font-size: clamp(56px, 10.5vw, 148px);
-}
-.hero h1 .line { display: block; overflow: hidden; }
-.hero h1 .line--sub {
-  font-size: clamp(22px, 3.1vw, 44px);
-  font-weight: 700; letter-spacing: 0;
-  margin-top: clamp(14px, 2vh, 22px);
-  color: oklch(96% 0.008 200 / .93);
-}
-.hero h1 .line > span {
-  display: inline-block;
-  transform: translateY(110%);
-  animation: rise 1.1s var(--ease-exp) forwards;
-}
-.hero h1 .line:nth-child(2) > span { animation-delay: .14s; }
-.hero h1 .line:nth-child(3) > span { animation-delay: .28s; }
-@keyframes rise { to { transform: translateY(0); } }
-.hero h1 em { font-style: normal; color: var(--sunrise-soft); }
-.hero-sub {
-  margin-top: clamp(22px, 3.5vh, 36px);
-  max-width: 34em; font-size: clamp(15px, 1.6vw, 18.5px);
-  color: var(--on-dark-dim); line-height: 1.75;
-  opacity: 0; animation: fade .9s ease .75s forwards;
-}
-.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: clamp(28px, 4vh, 44px); opacity: 0; animation: fade .9s ease .95s forwards; }
-@keyframes fade { to { opacity: 1; } }
-.btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 15px 30px; border-radius: 999px;
-  font-weight: 700; font-size: 15px; border: 0; cursor: pointer;
-  transition: transform .25s var(--ease-exp), box-shadow .25s, background .25s;
-}
-.btn-sunrise { background: var(--sunrise); color: oklch(98% 0.01 60); }
-.btn-sunrise:hover { transform: translateY(-3px); box-shadow: 0 14px 34px oklch(68% 0.16 42 / .38); }
-.btn-line { background: transparent; color: var(--on-dark); border: 1px solid oklch(96% 0.008 200 / .38); }
-.btn-line:hover { background: oklch(96% 0.008 200 / .1); }
-.btn-deep { background: var(--abyss); color: var(--on-dark); }
-.btn-deep:hover { transform: translateY(-3px); box-shadow: 0 12px 30px oklch(24% 0.045 235 / .3); }
-
-/* 해수면 웨이브 경계 */
-.shoreline { display: block; width: 100%; height: clamp(42px, 7vw, 96px); }
-.shoreline--to-sand path { fill: var(--sand); }
-.shoreline--to-abyss path { fill: var(--abyss); }
-.hero .shoreline { position: absolute; bottom: -1px; left: 0; z-index: 3; }
-
-/* ===== 물결 마퀴 ===== */
-.tide {
-  background: var(--sand); padding: clamp(26px, 4vh, 44px) 0;
-  border-bottom: 1px solid var(--foam-line);
-  overflow: hidden; white-space: nowrap;
-}
-.tide-track { display: inline-flex; gap: 0; animation: tide 34s linear infinite; will-change: transform; }
-.tide span {
-  font-family: 'Paperlogy'; font-weight: 700;
-  font-size: clamp(15px, 1.9vw, 21px); letter-spacing: .14em;
-  color: var(--ink-soft); padding: 0 14px;
-}
-.tide b { color: var(--sunrise); font-weight: 900; padding: 0 14px; }
-@keyframes tide { to { transform: translateX(-50%); } }
-
-/* ===== 섹션 공통 ===== */
-section { position: relative; }
-.sec-head { margin-bottom: clamp(44px, 7vh, 76px); }
-.sec-kicker {
-  font-size: 13px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase;
-  color: var(--sunrise); margin-bottom: 14px; display: flex; align-items: center; gap: 12px;
-}
-.sec-kicker::before { content: ''; width: 34px; height: 1px; background: var(--sunrise); }
-.sec-title {
-  font-weight: 900; letter-spacing: -.015em; line-height: 1.12;
-  font-size: clamp(34px, 4.6vw, 58px); color: var(--ink);
-}
-.sec-lead { margin-top: 18px; font-size: clamp(15px, 1.5vw, 17.5px); color: var(--ink-soft); max-width: 42em; }
-
-/* 스크롤 리빌 */
-.reveal { opacity: 0; transform: translateY(34px); transition: opacity .9s var(--ease-exp), transform .9s var(--ease-exp); }
-.reveal.in { opacity: 1; transform: none; }
-.reveal[data-delay="1"] { transition-delay: .12s; }
-.reveal[data-delay="2"] { transition-delay: .24s; }
-.reveal[data-delay="3"] { transition-delay: .36s; }
-
-/* ===== CONCEPT — 등대 숫자 에디토리얼 ===== */
-.concept { padding: clamp(84px, 12vh, 140px) 0 clamp(64px, 9vh, 110px); background: var(--sand); }
-.concept-rows { display: grid; gap: 0; border-top: 1px solid var(--foam-line); }
-.concept-row {
-  display: grid; grid-template-columns: minmax(90px, 180px) 1fr 1.4fr;
-  gap: clamp(18px, 3vw, 48px); align-items: baseline;
-  padding: clamp(30px, 4.5vh, 48px) 0;
-  border-bottom: 1px solid var(--foam-line);
-}
-.concept-row .no {
-  font-family: 'Paperlogy'; font-weight: 900;
-  font-size: clamp(44px, 6vw, 84px); line-height: 1;
-  color: transparent; -webkit-text-stroke: 1.5px var(--sunrise);
-}
-.concept-row h3 { font-weight: 700; font-size: clamp(20px, 2.2vw, 27px); color: var(--ink); letter-spacing: -.01em; }
-.concept-row p { color: var(--ink-soft); font-size: 15.5px; max-width: 36em; }
-@media (max-width: 760px) {
-  .concept-row { grid-template-columns: 72px 1fr; }
-  .concept-row p { grid-column: 2; }
-}
-
-/* ===== STORES — 심해 밴드, 교차 로우 ===== */
-.stores {
-  background: linear-gradient(180deg, var(--abyss) 0%, var(--abyss-2) 100%);
-  color: var(--on-dark);
-  padding: clamp(90px, 13vh, 150px) 0 clamp(56px, 8vh, 96px);
-}
-.stores .sec-title { color: var(--on-dark); }
-.stores .sec-lead { color: var(--on-dark-dim); }
-.store-row {
-  display: grid; grid-template-columns: repeat(12, 1fr);
-  gap: clamp(20px, 3vw, 44px); align-items: center;
-  padding: clamp(38px, 6vh, 68px) 0;
-}
-.store-row + .store-row { border-top: 1px solid oklch(96% 0.008 200 / .12); }
-.store-media { grid-column: 1 / 8; position: relative; }
-.store-copy  { grid-column: 8 / 13; }
-.store-row:nth-child(even) .store-media { grid-column: 6 / 13; order: 2; }
-.store-row:nth-child(even) .store-copy  { grid-column: 1 / 6;  order: 1; }
-.store-media a { display: block; overflow: hidden; border-radius: 14px; }
-.store-media img {
-  width: 100%; aspect-ratio: 16 / 10; object-fit: cover;
-  transition: transform .8s var(--ease-exp), filter .8s;
-  filter: saturate(.96);
-}
-.store-media a:hover img { transform: scale(1.045); filter: saturate(1.05); }
-.store-media .idx {
-  position: absolute; top: -26px; left: -8px; z-index: 2;
-  font-family: 'Paperlogy'; font-weight: 900;
-  font-size: clamp(56px, 7vw, 104px); line-height: 1;
-  color: transparent; -webkit-text-stroke: 1.5px oklch(96% 0.008 200 / .4);
-  pointer-events: none;
-}
-.store-copy .role {
-  font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
-  color: var(--sunrise-soft); margin-bottom: 12px;
-}
-.store-copy h3 { font-weight: 900; font-size: clamp(26px, 3vw, 38px); letter-spacing: -.01em; margin-bottom: 14px; }
-.store-copy p { color: var(--on-dark-dim); font-size: 15.5px; max-width: 30em; margin-bottom: 18px; }
-.store-copy .menus { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; list-style: none; }
-.store-copy .menus li {
-  font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
-  color: var(--sunrise-soft); border: 1px solid oklch(80% 0.09 55 / .38);
-  padding: 6px 13px; border-radius: 999px;
-}
-.store-copy .go {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-weight: 700; font-size: 14px; color: var(--on-dark);
-  border-bottom: 1px solid oklch(96% 0.008 200 / .35); padding-bottom: 4px;
-  transition: gap .3s var(--ease-exp), border-color .3s;
-}
-.store-copy .go:hover { gap: 16px; border-color: var(--sunrise); }
-@media (max-width: 860px) {
-  .store-row, .store-row:nth-child(even) { display: block; }
-  .store-media .idx { top: -20px; left: 2px; }
-  .store-copy { margin-top: 26px; }
-}
-
-/* ===== GALLERY — 젖은 모래 위 파노라마 ===== */
-.gallery { background: var(--sand-deep); padding: clamp(84px, 12vh, 140px) 0; }
-.gallery-grid {
-  display: grid; gap: 14px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: clamp(150px, 21vw, 280px);
-}
-.g { overflow: hidden; border-radius: 14px; position: relative; }
-.g img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease-exp); }
-.g:hover img { transform: scale(1.05); }
-.g-wide { grid-column: span 2; grid-row: span 2; }
-.g-tall { grid-row: span 2; }
-@media (max-width: 760px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: clamp(130px, 30vw, 220px); }
-}
-.g figcaption {
-  position: absolute; left: 0; right: 0; bottom: 0;
-  padding: 42px 18px 14px; font-size: 12.5px; font-weight: 600; color: var(--on-dark);
-  background: linear-gradient(180deg, transparent, oklch(24% 0.045 235 / .72));
-  opacity: 0; transition: opacity .4s; pointer-events: none;
-}
-.g:hover figcaption { opacity: 1; }
-
-/* ===== COURSE — 간절곶 반나절 코스 ===== */
-.course {
-  background: linear-gradient(180deg, var(--sand) 0%, var(--sand-deep) 100%);
-  padding: clamp(84px, 12vh, 140px) 0;
-}
-.course-steps {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: clamp(18px, 2.6vw, 34px);
-  counter-reset: step;
-}
-.course-step {
-  position: relative; background: oklch(99% 0.005 90);
-  border: 1px solid var(--foam-line); border-radius: 16px;
-  padding: clamp(22px, 2.6vw, 32px);
-  transition: transform .35s var(--ease-exp), box-shadow .35s;
-}
-.course-step:hover { transform: translateY(-6px); box-shadow: 0 18px 44px oklch(24% 0.045 235 / .1); }
-.course-step .time {
-  display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .14em;
-  color: var(--sunrise); text-transform: uppercase; margin-bottom: 14px;
-  font-family: 'Paperlogy';
-}
-.course-step h3 { font-weight: 700; font-size: clamp(17px, 1.7vw, 20px); color: var(--ink); margin-bottom: 10px; letter-spacing: -.01em; }
-.course-step p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
-.course-step::before {
-  counter-increment: step; content: counter(step, decimal-leading-zero);
-  position: absolute; top: -14px; right: 16px;
-  font-family: 'Paperlogy'; font-weight: 900; font-size: 40px; line-height: 1;
-  color: transparent; -webkit-text-stroke: 1.2px oklch(68% 0.16 42 / .45);
-  pointer-events: none;
-}
-.course-step--here { background: var(--abyss); border-color: var(--abyss); }
-.course-step--here h3 { color: var(--on-dark); }
-.course-step--here p { color: var(--on-dark-dim); }
-.course-step--here .time { color: var(--sunrise-soft); }
-.course-note { margin-top: 26px; font-size: 13.5px; color: var(--ink-soft); }
-@media (max-width: 980px) { .course-steps { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .course-steps { grid-template-columns: 1fr; } }
-
-/* ===== LOCATION — 물때표 스타일 ===== */
-.location { background: var(--sand); padding: clamp(84px, 12vh, 140px) 0; }
-.loc-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
-@media (max-width: 860px) { .loc-grid { grid-template-columns: 1fr; } }
-.loc-table { border-top: 2px solid var(--abyss); }
-.loc-table > div {
-  display: grid; grid-template-columns: 120px 1fr; gap: 20px;
-  padding: 18px 4px; border-bottom: 1px solid var(--foam-line);
-  font-size: 15.5px;
-}
-.loc-table dt { font-weight: 800; color: var(--abyss); font-family: 'Paperlogy'; font-size: 14px; letter-spacing: .04em; }
-.loc-table dd { color: var(--ink-soft); }
-.loc-map {
-  width: 100%; aspect-ratio: 4 / 3; border: 0; border-radius: 16px;
-  box-shadow: 0 18px 50px oklch(24% 0.045 235 / .14);
-}
-.loc-cta { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
-
-/* ===== FOOTER — 밤바다 ===== */
-.footer { background: var(--abyss); color: var(--on-dark-dim); overflow: hidden; }
-.footer-mark {
-  font-family: 'Paperlogy'; font-weight: 900;
-  font-size: clamp(52px, 11vw, 170px); line-height: .95; letter-spacing: -.01em;
-  color: transparent; -webkit-text-stroke: 1px oklch(96% 0.008 200 / .22);
-  padding: clamp(48px, 8vh, 90px) 0 0; user-select: none; white-space: nowrap;
-}
-.footer-grid {
-  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 36px;
-  padding: clamp(36px, 6vh, 64px) 0;
-  border-bottom: 1px solid oklch(96% 0.008 200 / .1);
-}
-@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; } }
-.footer h4 { color: var(--on-dark); font-size: 15px; margin-bottom: 14px; font-weight: 700; }
-.footer p, .footer a { font-size: 14px; line-height: 2; }
-.footer a:hover { color: var(--sunrise-soft); }
-.footer-bottom { padding: 24px 0 34px; font-size: 12.5px; color: oklch(78% 0.02 210 / .55); }
-
-/* ===== 모바일 하단 고정 CTA ===== */
-.sticky-cta {
-  display: none;
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 300;
-  padding: 10px clamp(14px, 4vw, 20px) calc(10px + env(safe-area-inset-bottom, 0px));
-  background: color-mix(in oklab, var(--abyss) 92%, transparent);
-  backdrop-filter: blur(12px);
-  border-top: 1px solid oklch(96% 0.008 200 / .14);
-  gap: 10px;
-}
-.sticky-cta a {
-  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-  padding: 13px 10px; border-radius: 999px; font-weight: 700; font-size: 14.5px;
-}
-.sticky-cta .cta-map { background: var(--sunrise); color: oklch(98% 0.01 60); }
-.sticky-cta .cta-ask { color: var(--on-dark); border: 1px solid oklch(96% 0.008 200 / .35); }
-@media (max-width: 760px) {
-  .sticky-cta { display: flex; }
-  .footer { padding-bottom: 76px; }
-}
-
-/* ===== 모션 감소 존중 ===== */
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg img, .hero h1 .line > span, .hero-sub, .hero-cta, .hero-glow, .scroll-cue { animation: none; transform: none; opacity: 1; }
-  .hero-glow { transform: translateX(-50%); }
-  .scroll-cue::after { animation: none; }
-  .tide-track { animation: none; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .course-step:hover { transform: none; }
-  html { scroll-behavior: auto; }
-}
-</style>
+<link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
+<!--
+THESIS: 여행 마켓플레이스 문법 — 사진이 말하고 글자는 겸손하다. 유리판·드렌치·세리프 전부 폐기, 흰 캔버스 위 사진 카드와 한 점의 Rausch.
+OWN-WORLD: Airbnb 캐논(getdesign.md/airbnb DESIGN.md, 사용자 핀) — 흰 캔버스 #fff, 잉크 #222, Rausch #ff385c 단일 액센트(CTA·브랜드). Pretendard(Cereal 대체) 디스플레이 22~32px/500~700, 라운드 8/14/20/full, 그림자 1단계, 8px 스페이싱·섹션 64px. 사진 카드가 위계.
+STORY: 사진·이름 → 한 동 4업종 1테이블 → 4매장 로우 → 공간 → 간절곶 코스 → 길찾기.
+FIRST VIEWPORT: 흰 80px 네비 → (서브: 4매장 탭 스트립, 활성 잉크 밑줄) → 라운드 20px 사진 배너 21:9 → 그 아래 조용한 제목 32px/700 + 메타 + Rausch CTA.
+FORM: 세계관 = 사용자 핀 "Airbnb" (캐논 표준, 롤 우회, 2026-09-01). 구조 = 서브페이지 건물 안내판→상품 탭 스트립(seed aa0f0c39).
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
 
 <nav class="nav" aria-label="주 메뉴">
   <div class="wrap nav-inner">
@@ -538,6 +107,7 @@ section { position: relative; }
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="scroll-cue" aria-hidden="true">Scroll</div>
   <div class="wrap hero-inner">
+  <div class="hero-glass">
     <div class="hero-eyebrow">Ulsan · Ganjeolgot 5 min</div>
     <h1>
       <span class="line"><span>나사리의 <em>맛집</em></span></span>
@@ -548,6 +118,7 @@ section { position: relative; }
       <a href="#stores" class="btn btn-sunrise">4매장 보기</a>
       <a href="#location" class="btn btn-line">오시는 길</a>
     </div>
+  </div>
   </div>
   <svg class="shoreline shoreline--to-sand" viewBox="0 0 1440 96" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0,64 C240,96 480,16 720,40 C960,64 1200,96 1440,48 L1440,96 L0,96 Z"/>
@@ -750,7 +321,7 @@ section { position: relative; }
         </dl>
         <div class="loc-cta">
           <a href="https://map.kakao.com/link/to/나사리 포플라,35.3569942,129.3377481" target="_blank" rel="noopener" class="btn btn-deep">카카오맵 길찾기</a>
-          <a href="/contact" class="btn btn-line" style="color: var(--ink); border-color: var(--foam-line);">문의하기</a>
+          <a href="/contact" class="btn btn-line btn-line--ink">문의하기</a>
         </div>
       </div>
       <iframe class="loc-map reveal" src="https://maps.google.com/maps?q=35.3569942,129.3377481&amp;z=16&amp;hl=ko&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="나사리 포플라 위치 지도"></iframe>
