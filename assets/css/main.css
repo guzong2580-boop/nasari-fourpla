@@ -263,7 +263,7 @@ section { position: relative; }
 .loc-cta { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* 지도 뮤트 — 캐논 준수: 지도는 가라앉히고 브랜드 핀 하나만 얹는다 */
-.map-quiet { position: relative; width: 100%; border-radius: var(--r-md); overflow: hidden; }
+.map-quiet { position: relative; width: 100%; border-radius: var(--r-md); overflow: hidden; aspect-ratio: 4 / 3; }
 .map-quiet iframe,
 .map-quiet > div:first-of-type { }
 .map-quiet .map-link { display: block; }
