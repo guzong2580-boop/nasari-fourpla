@@ -194,10 +194,15 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         var map = new kakao.maps.Map(container, { center: pos, level: 3 });
         var marker = new kakao.maps.Marker({ position: pos });
         marker.setMap(map);
-        var iw = new kakao.maps.InfoWindow({
-          content: '<div style="padding:7px 12px;font-size:13px;font-weight:600;white-space:nowrap;">나사리 포플라</div>'
+        var overlay = new kakao.maps.CustomOverlay({
+          position: pos,
+          yAnchor: 1.35,
+          content: '<div style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.16);padding:9px 14px;text-align:center;white-space:nowrap;font-family:Pretendard,sans-serif;">' +
+            '<div style="font-size:14px;font-weight:700;color:#222;">나사리 포플라</div>' +
+            '<div style="font-size:11px;color:#717171;margin-top:2px;">완연한나사리 · 바마이쌀국수 · 서리담 · 온복국수</div>' +
+          '</div>'
         });
-        iw.open(map, marker);
+        overlay.setMap(map);
         map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
       });
     }
